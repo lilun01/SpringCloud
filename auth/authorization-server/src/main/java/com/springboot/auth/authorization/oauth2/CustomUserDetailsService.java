@@ -1,5 +1,6 @@
 package com.springboot.auth.authorization.oauth2;
 
+import com.alibaba.fastjson.JSON;
 import com.springboot.auth.authorization.entity.Role;
 import com.springboot.auth.authorization.entity.User;
 import com.springboot.auth.authorization.service.IRoleService;
@@ -30,6 +31,7 @@ public class CustomUserDetailsService implements UserDetailsService {
         User user = userService.getByUniqueId(uniqueId);
         log.info("load user by username :{}", user.toString());
 
+        System.out.println("user="+JSON.toJSONString(user));
         return new org.springframework.security.core.userdetails.User(
                 user.getUsername(),
                 user.getPassword(),

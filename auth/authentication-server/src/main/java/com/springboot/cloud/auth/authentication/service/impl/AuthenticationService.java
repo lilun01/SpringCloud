@@ -30,7 +30,7 @@ public class AuthenticationService implements IAuthenticationService {
      */
     @Override
     public boolean decide(HttpServletRequest authRequest) {
-        log.debug("正在访问的url是:{}，method:{}", authRequest.getServletPath(), authRequest.getMethod());
+        log.info("正在访问的url是:{}，method:{}", authRequest.getServletPath(), authRequest.getMethod());
         //获取用户认证信息
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         //获取此url，method访问对应的权限资源信息
